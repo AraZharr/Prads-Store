@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRADS STOREE | UNLEASH THE DRIFT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,800;1,800&amp;family=Hanken+Grotesk:wght@400;700&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#121416",
+                    "surface-container": "#1e2022",
+                    "secondary-fixed": "#ffdbd0",
+                    "on-secondary-fixed-variant": "#852400",
+                    "surface-tint": "#00dbe9",
+                    "on-background": "#e2e2e5",
+                    "surface-container-lowest": "#0c0e10",
+                    "secondary-fixed-dim": "#ffb59e",
+                    "tertiary-fixed-dim": "#d1bcff",
+                    "on-secondary": "#5e1700",
+                    "on-surface": "#e2e2e5",
+                    "primary-fixed-dim": "#00dbe9",
+                    "outline": "#849495",
+                    "primary-fixed": "#7df4ff",
+                    "surface-variant": "#333537",
+                    "on-tertiary": "#3c0090",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "inverse-primary": "#006970",
+                    "inverse-on-surface": "#2f3133",
+                    "tertiary-container": "#e1d2ff",
+                    "surface": "#121416",
+                    "inverse-surface": "#e2e2e5",
+                    "outline-variant": "#3b494b",
+                    "on-primary": "#00363a",
+                    "on-primary-fixed": "#002022",
+                    "on-secondary-fixed": "#3a0b00",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#23005b",
+                    "surface-bright": "#38393c",
+                    "primary-container": "#00f0ff",
+                    "on-tertiary-container": "#7213ff",
+                    "surface-dim": "#121416",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-container-high": "#282a2c",
+                    "secondary-container": "#ff571a",
+                    "on-secondary-container": "#521300",
+                    "on-primary-container": "#006970",
+                    "tertiary": "#faf3ff",
+                    "on-primary-fixed-variant": "#004f54",
+                    "surface-container-low": "#1a1c1e",
+                    "on-tertiary-fixed-variant": "#5700c9",
+                    "on-surface-variant": "#b9cacb",
+                    "secondary": "#ffb59e",
+                    "primary": "#dbfcff",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#333537"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "lg": "40px",
+                    "xs": "4px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Anybody"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-md": ["Anybody"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Anybody"],
+                    "headline-lg-mobile": ["Anybody"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .nitro-glow {
+            box-shadow: 0 0 15px rgba(0, 219, 233, 0.3);
+        }
+        .nitro-glow:hover {
+            box-shadow: 0 0 25px rgba(0, 219, 233, 0.6);
+            border-color: #00dbe9;
+        }
+        .segment-bar {
+            background: repeating-linear-gradient(90deg, #ff571a, #ff571a 10px, transparent 10px, transparent 14px);
+        }
+        .glass-hud {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        input:focus {
+            outline: none;
+            border-bottom: 2px solid #00dbe9 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-surface-tint selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="w-full top-0 sticky z-50 bg-background/80 backdrop-blur-md border-b-2 border-primary shadow-[0px_0px_15px_rgba(0,219,233,0.3)] transition-all duration-200">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="font-display-lg text-headline-md md:text-display-lg italic tracking-tighter text-primary">
+                PRADS STOREE
+            </div>
+<nav class="hidden md:flex gap-md items-center">
+<a class="font-headline-md text-headline-md text-primary border-b-2 border-primary pb-1" href="#">Garage</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors" href="#pricing">Services</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors" href="#">Fuel</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors" href="#">Event</a>
+<a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-base">
+<button onclick="document.getElementById('order').scrollIntoView({ behavior: 'smooth' })" class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-variant/20 rounded-full transition-all" href="#order">shopping_cart</button>
+<button class="hidden md:block bg-surface-tint text-on-primary font-label-caps px-md py-sm rounded-none tracking-widest active:scale-95 transition-transform">LOGIN</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="A highly stylized cinematic shot of a sleek drift car performing a high-speed maneuver on a midnight city street. The scene is illuminated by intense neon electric blue underglow and orange sparks flying from the asphalt. The aesthetic is gritty and high-octane, featuring dark charcoal tones and sharp highlights of cyan. Atmosphere is charged with adrenaline and technical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOrXZV91vOcDwUjNeXSV7H5x5aO3--E_BdYzi2qOe4_S0hEPmlikBlCgqiFlcRUg75d0jW86KgEKK2_po3u2B9qyenGRdovD48JeJnuSUCSgmDxfEmqlIUUjTffjSbbFcEPpdIeIEnZIpVbBfqdYb5CxPFgv2WA8U4ljIQwP5tKko8Zp3-gayWubqnFaTOcA6p2Bvx12Ads5cxiuV-fKg0ia6b_u8g5YdhG9uZ5CSspW2QJWQClf88xKOjIXCoqLyt1A0qMoVbiNvK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<h1 class="font-display-lg text-6xl md:text-9xl italic tracking-tighter text-primary mb-xs drop-shadow-[0_0_30px_rgba(0,219,233,0.5)]">
+                    UNLEASH THE DRIFT
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">
+                    Level up your garage with the most elite tuning services. Currency, parts, and exclusive event rewards delivered with nitro speed.
+                </p>
+<div class="flex flex-col md:flex-row justify-center gap-base">
+<a class="bg-surface-tint text-on-primary font-label-caps px-xl py-md text-body-md tracking-widest hover:brightness-110 nitro-glow transition-all" href="#pricing">BROWSE CATALOG</a>
+<a class="border border-surface-tint text-surface-tint font-label-caps px-xl py-md text-body-md tracking-widest hover:bg-surface-tint/10 transition-all" href="#order">QUICK TOP-UP</a>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="pricing">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-base">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase">Elite Services</h2>
+<p class="text-on-surface-variant font-body-md">Precision-engineered packages for the serious racer.</p>
+</div>
+<div class="flex items-center gap-xs">
+<span class="font-label-caps text-on-surface-variant">FILTER BY:</span>
+<span class="bg-surface-variant px-sm py-xs text-xs font-label-caps text-primary border border-surface-tint/30">ALL SERVICES</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter">
+<!-- Money & Gold -->
+<div class="bg-surface-container border border-outline-variant nitro-glow transition-all group relative">
+<div class="h-1 bg-secondary w-full"></div>
+<div class="p-md">
+<span class="font-label-caps text-[10px] text-secondary mb-xs block">LEGENDARY BUNDLE</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Money 400k &amp; Gold 400</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-surface-tint text-sm">payments</span>
+<span class="text-xs font-label-caps text-on-surface-variant">CURRENCY PACK</span>
+</div>
+<div class="flex justify-between items-end mt-xl">
+<span class="font-label-caps text-xs text-on-surface-variant">PRICE</span>
+<span class="font-label-caps text-xl text-primary">Rp 10.000</span>
+</div>
+</div>
+</div>
+<!-- 6 Mobil -->
+<div class="bg-surface-container border border-outline-variant nitro-glow transition-all group relative">
+<div class="h-1 bg-surface-tint w-full"></div>
+<div class="p-md">
+<span class="font-label-caps text-[10px] text-surface-tint mb-xs block">GARAGE EXPANSION</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">6 Mobil (Cars)</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-surface-tint text-sm">directions_car</span>
+<span class="text-xs font-label-caps text-on-surface-variant">VEHICLE SLOTS</span>
+</div>
+<div class="flex justify-between items-end mt-xl">
+<span class="font-label-caps text-xs text-on-surface-variant">PRICE</span>
+<span class="font-label-caps text-xl text-primary">Rp 13.000</span>
+</div>
+</div>
+</div>
+<!-- Mesin -->
+<div class="bg-surface-container border border-outline-variant nitro-glow transition-all group relative">
+<div class="h-1 bg-secondary w-full"></div>
+<div class="p-md">
+<span class="font-label-caps text-[10px] text-secondary mb-xs block">PERFORMANCE TUNING</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Mesin dari Tier 1-5</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-surface-tint text-sm">settings_input_component</span>
+<span class="text-xs font-label-caps text-on-surface-variant">ENGINE SWAPS</span>
+</div>
+<div class="flex justify-between items-end mt-xl">
+<span class="font-label-caps text-xs text-on-surface-variant">PRICE</span>
+<span class="font-label-caps text-xl text-primary">Rp 20.000</span>
+</div>
+</div>
+</div>
+<!-- Fuel -->
+<div class="bg-surface-container border border-outline-variant nitro-glow transition-all group relative">
+<div class="h-1 bg-surface-tint w-full"></div>
+<div class="p-md">
+<span class="font-label-caps text-[10px] text-surface-tint mb-xs block">REFILL PACK</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Bensin / Fuel 5000</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-surface-tint text-sm">ev_station</span>
+<span class="text-xs font-label-caps text-on-surface-variant">ENERGY SUPPLY</span>
+</div>
+<div class="flex justify-between items-end mt-xl">
+<span class="font-label-caps text-xs text-on-surface-variant">PRICE</span>
+<span class="font-label-caps text-xl text-primary">Rp 15.000</span>
+</div>
+</div>
+</div>
+<!-- Event Reward -->
+<div class="bg-surface-container border border-outline-variant nitro-glow transition-all group relative">
+<div class="h-1 bg-secondary w-full"></div>
+<div class="p-md">
+<span class="font-label-caps text-[10px] text-secondary mb-xs block">LIMITED TIME</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Ambilin Hadiah Event</h3>
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-surface-tint text-sm">redeem</span>
+<span class="text-xs font-label-caps text-on-surface-variant">EVENT RECOVERY</span>
+</div>
+<div class="flex justify-between items-end mt-xl">
+<span class="font-label-caps text-xs text-on-surface-variant">PRICE</span>
+<span class="font-label-caps text-xl text-primary">Rp 8.000</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Form Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-xl items-center" id="order">
+<div class="order-2 lg:order-1">
+<div class="glass-hud p-lg border border-outline-variant border-l-4 border-l-surface-tint">
+<h2 class="font-display-lg text-headline-lg text-primary uppercase mb-base tracking-tight italic">PEMESANAN KILAT</h2>
+<p class="font-body-md text-on-surface-variant mb-lg">Enter your details for immediate nitro processing. Precision speed delivery.</p>
+<form onsubmit="sendMessage(event)" class="space-y-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-xs text-on-surface-variant">PLAYER ID / LOGIN INFO</label>
+<input class="w-full bg-surface-variant/20 border-b border-outline text-on-surface py-base px-0 font-label-caps focus:border-surface-tint transition-all placeholder:opacity-30" id="name" placeholder="PRADSS#0001" type="text" required/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-caps text-xs text-on-surface-variant">SERVICE SELECTION</label>
+<select id="serv" class="w-full bg-surface-container-high border-b border-outline text-on-surface py-base px-base font-label-caps focus:border-surface-tint focus:ring-0 appearance-none" required>
+<option value="" disabled selected>Select Package...</option>
+<option value="10000">Money 400k &amp; Gold 400 (Rp 10.000)</option>
+<option value="13000">6 Mobil (Rp 13.000)</option>
+<option value="20000">Mesin Tier 1-5 (Rp 20.000)</option>
+<option value="15000">Fuel 5000 (Rp 15.000)</option>
+<option value="8000">Hadiah Event (Rp 8.000)</option>
+</select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-caps text-xs text-on-surface-variant">PAYMENT METHOD</label>
+<select id="pay" class="w-full bg-surface-container-high border-b border-outline text-on-surface py-base px-base font-label-caps focus:border-surface-tint focus:ring-0 appearance-none" required>
+<option value="" disabled selected>Select Payment...</option>
+<option>Bank Transfer</option>
+<option>DANA</option>
+<option>OVO</option>
+<option>GoPay</option>
+</select>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant flex justify-between items-center">
+<div>
+<span class="font-label-caps text-xs text-on-surface-variant block">TOTAL PAYMENT</span>
+<span class="font-display-lg text-headline-lg text-secondary" id="total-price">Rp 0</span>
+</div>
+<button class="bg-surface-tint text-on-primary font-label-caps px-xl py-md text-body-md tracking-widest nitro-glow active:scale-95 transition-all" type="submit">EXECUTE ORDER</button>
+</div>
+</form>
+</div>
+</div>
+
+<script>
+  function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const service = document.getElementById('serv');
+    const payment = document.getElementById('pay').value;
+
+    const serviceText =
+      service.options[service.selectedIndex].text;
+
+    const message =
+      "Halo Admin!\n" +
+      "Saya Mau Order Inject\n\n" +
+      "> ID *" + name + "*\n" +
+      "> SERVICE *" + serviceText + "*\n" +
+      "> PAYMENT *" + payment + "*";
+
+    const url =
+      "https://api.whatsapp.com/send?phone=6281391598406&text=" +
+      encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+</script>
+
+<div class="order-1 lg:order-2 space-y-md">
+<div class="relative group">
+<img class="w-full aspect-video object-cover border border-outline-variant opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A detailed macro view of high-performance car engine parts with a focus on polished chrome and matte carbon fiber textures. The scene is bathed in a cool blue neon light that emphasizes the sharp metallic edges and complex mechanical structure. Technical diagrams and HUD data points are subtly overlaid in the background to create a futuristic automotive engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7IZ2qAYNr5wdNvNCRXButTltnYo3YyydwSfwI-dpW4gpsv5oOsdT3kuqAcFDf1h1lIU_NoH6LAN7bwdOAt5SPDX_RzBqZTgGQhlFC-u3BaZh8F7czf5HYKXPmvochWR3WrBsgs-uvlikm-YJThBGBKJjRT7M8obLdk2aFx-iFY765N_CEAxGJxOTR--6K53qLpZAYS9sG6CnsDO6if7UnUhUPw8_ZKBo5lP_rZQyqPd4c4UpYK_-0euwjJzYZV0h3BtjC6N2M8hZB"/>
+<div class="absolute bottom-base right-base glass-hud p-sm border border-surface-tint/40">
+<span class="font-label-caps text-[10px] text-primary">HUD SYSTEM ACTIVE // STATUS: READY</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-base">
+<div class="bg-surface-container-high p-sm border-l-2 border-secondary">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">ENGINE</span>
+<div class="h-2 w-full bg-surface-variant mt-xs overflow-hidden">
+<div class="h-full w-[85%] segment-bar"></div>
+</div>
+</div>
+<div class="bg-surface-container-high p-sm border-l-2 border-surface-tint">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">TURBO</span>
+<div class="h-2 w-full bg-surface-variant mt-xs overflow-hidden">
+<div class="h-full w-[95%] segment-bar"></div>
+</div>
+</div>
+<div class="bg-surface-container-high p-sm border-l-2 border-primary">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">NITRO</span>
+<div class="h-2 w-full bg-surface-variant mt-xs overflow-hidden">
+<div class="h-full w-[70%] segment-bar"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 border-t-4 border-secondary-container bg-surface-container-lowest transition-all duration-200">
+<div class="flex flex-col items-center gap-base px-margin-desktop">
+<div class="font-headline-md text-headline-md text-primary uppercase italic tracking-tighter">PRADS STOREE</div>
+<div class="flex flex-wrap justify-center gap-md my-sm">
+<a class="text-on-surface-variant font-body-md hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Refund Policy</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Contact Us</a>
+</div>
+<p class="text-on-surface-variant font-body-md opacity-80">© 2024 PRADS STOREE. UNLEASH THE DRIFT.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the order form
+        const select = document.querySelector('select');
+        const priceDisplay = document.getElementById('total-price');
+
+        select.addEventListener('change', (e) => {
+            const value = e.target.value;
+            if (value && value !== 'Select Package...') {
+                priceDisplay.textContent = 'Rp ' + parseInt(value).toLocaleString('id-ID');
+                priceDisplay.classList.add('animate-pulse');
+                setTimeout(() => priceDisplay.classList.remove('animate-pulse'), 500);
+            } else {
+                priceDisplay.textContent = 'Rp 0';
+            }
+        });
+
+        // Atmosphere Effect: Mouse tracking glow
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.nitro-glow');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(0, 219, 233, 0.05) 0%, transparent 70%)`;
+                } else {
+                    card.style.background = '';
+                }
+            });
+        });
+    </script>
+</body></html>
